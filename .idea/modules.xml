@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Access Modifiers/Access Modifiers.iml" filepath="$PROJECT_DIR$/Access Modifiers/Access Modifiers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/CSS143.iml" filepath="$PROJECT_DIR$/.idea/CSS143.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Car Project/Car Project.iml" filepath="$PROJECT_DIR$/Car Project/Car Project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Data and Methods in Classes/Data and Methods in Classes.iml" filepath="$PROJECT_DIR$/Data and Methods in Classes/Data and Methods in Classes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Fraction V2/Fraction V2.iml" filepath="$PROJECT_DIR$/Fraction V2/Fraction V2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Fractions V1/Fractions V1.iml" filepath="$PROJECT_DIR$/Fractions V1/Fractions V1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Infix Calculator Project/Infix Calculator Project.iml" filepath="$PROJECT_DIR$/Infix Calculator Project/Infix Calculator Project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab 2/Lab 2.iml" filepath="$PROJECT_DIR$/Lab 2/Lab 2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab 3/Lab 3.iml" filepath="$PROJECT_DIR$/Lab 3/Lab 3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab 4/Lab 4.iml" filepath="$PROJECT_DIR$/Lab 4/Lab 4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Stacks Queues Arraylist/Stacks Queues Arraylist.iml" filepath="$PROJECT_DIR$/Stacks Queues Arraylist/Stacks Queues Arraylist.iml" />
+    </modules>
+  </component>
+</project>

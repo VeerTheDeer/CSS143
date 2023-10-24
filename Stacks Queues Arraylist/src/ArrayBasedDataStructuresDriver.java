@@ -1,130 +1,232 @@
-
-
+import java.util.*;
+/**
+ * The ArrayBasedDataStructuresDriver class provides a driver program to test
+ * various array-based data structures, including ArrayList, Stack, and Queue.
+ *
+ * By Veer Saini
+ */
 public class ArrayBasedDataStructuresDriver {
 
+	// Instance Variables
+	private static boolean failed = false;
+	private static String[] allFailed = new String[100000];
+	private static int numFailed = 0;
+
+	/**
+	 * The main method runs tests for ArrayList, Stack, and Queue data structures,
+	 * and displays the test results.
+	 *
+	 * @param args The command-line arguments (not used in this program).
+	 */
 	public static void main(String[] args) {
-		arrayListTests();
-		stackTests();
-		queueTests();
+
+		testArrayList();
+		testStack();
+		testQueue();
+
+		System.out.println();
+
+		if (failed) {
+			System.out.println("Fail Report:");
+			for (int i = 0; i < numFailed; i++) {
+				System.out.println(allFailed[i]);
+			}
+		} else {
+			System.out.println("All tests passed.");
+		}
 	}
 
-	private static void arrayListTests() {
+	/**
+	 * Tests the ArrayList data structure by performing insert, add, indexOf, get,
+	 * size, remove, and equals operations.
+	 */
+	private static void testArrayList() {
 
-		ArrayList randChar = new ArrayList();
+		ArrayList charList = new ArrayList();
 
-		System.out.println("ArrayList Class Testing:");
-		System.out.println();
+		charList.insert('b', 0);
+		charList.insert('r', 0);
+		charList.insert('6', 2);
+		charList.insert('1', 1);
+		charList.insert('W', 0);
+		charList.insert('c', 3);
+		charList.insert('G', 2);
 
-		System.out.println("Insert Testing:");
-		randChar.insert('a', 0);
-		randChar.insert('B',0);
-		randChar.insert('t',2);
-		randChar.insert('3',1);
-		randChar.insert('o', 0);
-		randChar.insert('a',3);
-		randChar.insert('s',2);
-		System.out.println( randChar.toString());
-		System.out.println();
-
-		System.out.println("Remove and IsEmpty Testing:");
-
-		while(!randChar.isEmpty()) {
-			System.out.print("Object " + randChar.remove(0) + " removed : ");
-			System.out.println(randChar.toString());
+		if (charList.toString().equals("W r G 1 c b 6 ")) {
+			System.out.print(".");
+		} else {
+			failed = true;
+			allFailed[numFailed] = "Insert Method Failed";
+			numFailed++;
 		}
-		System.out.println();
 
-		System.out.println("Add Testing:");
-		randChar.add('D');
-		randChar.add('O');
-		randChar.add('G');
-		randChar.add('S');
-		System.out.println(randChar.toString());
-		System.out.println();
-
-		System.out.println("IndexOf Testing:");
-		System.out.println("Object 'G' is in index " +randChar.indexOf('G'));
-		System.out.println("Object 'K' is in index " +randChar.indexOf('K'));
-		System.out.println(randChar.toString());
-		System.out.println();
-
-		System.out.println("Get (Object at Index) Testing:");
-		System.out.println("Object at Index 2 is " + randChar.get(2));
-		System.out.println("Object at Index 7 is " + randChar.get(7));
-		System.out.println();
-
-		System.out.println("Size and Remove Testing:");
-		for(int i = 0; i <= randChar.size()+1; i++){
-			System.out.print("Object " + randChar.remove(0) + " removed : ");
-			System.out.println(randChar.toString());
+		while (!charList.isEmpty()) {
+			charList.remove(0);
 		}
-		System.out.println();
+
+		for (int i = 0; i < charList.size(); i++) {
+			if (charList.get(i) == null) {
+				System.out.print(".");
+			} else {
+				failed = true;
+				allFailed[numFailed] = "Remove and IsEmpty Method Failed";
+				numFailed++;
+			}
+		}
+
+		charList.add('P');
+		charList.add('A');
+		charList.add('R');
+		charList.add('R');
+		charList.add('O');
+		charList.add('T');
+		if (charList.toString().equals("P A R R O T ")) {
+			System.out.println(".");
+		} else {
+			failed = true;
+			allFailed[numFailed] = "Add Method Failed";
+			numFailed++;
+		}
+
+		if ((charList.indexOf('T') == 5) && (charList.indexOf('E') == -1)) {
+			System.out.println(".");
+		} else {
+			failed = true;
+			allFailed[numFailed] = "IndexOf Method Failed";
+			numFailed++;
+		}
+
+		if ((charList.get(5).equals('T'))) {
+			System.out.println(".");
+		} else {
+			failed = true;
+			allFailed[numFailed] = "Get Method Failed";
+			numFailed++;
+		}
+
+		int size = charList.size();
+		for (int i = 0; i < size; i++) {
+			charList.remove(0);
+		}
+
+		for (int i = 0; i < charList.size(); i++) {
+			if (charList.get(i) == null) {
+				System.out.println(".");
+			} else {
+				failed = true;
+				allFailed[numFailed] = "Size and Remove Method Failed";
+				numFailed++;
+			}
+		}
+
+		ArrayList ArrayList1 = new ArrayList();
+		ArrayList ArrayList2 = new ArrayList();
+
+
+		ArrayList1.add('P');
+		ArrayList1.add('A');
+		ArrayList1.add('R');
+		ArrayList1.add('R');
+		ArrayList1.add('O');
+		ArrayList1.add('T');
+
+		ArrayList2.add('P');
+		ArrayList2.add('A');
+		ArrayList2.add('R');
+		ArrayList2.add('R');
+		ArrayList2.add('O');
+		ArrayList2.add('T');
+		ArrayList2.add('S');
+
+
+
+		if ((ArrayList1.equals(ArrayList2))) {
+			System.out.print(".");
+		} else {
+			failed = true;
+			allFailed[numFailed] = "Equals Method Failed";
+			numFailed++;
+		}
 	}
 
+	/**
+	 * Tests the Stack data structure by performing push, size, pop, get, and isEmpty
+	 * operations.
+	 */
+	private static void testStack() {
 
-	private static void stackTests() {
+		Stack recentGames = new Stack();
 
-		Stack gamesOnTable = new Stack();
+		recentGames.push("Counter Strike");
+		recentGames.push("Spider-Man 2");
+		recentGames.push("League of Legends");
+		recentGames.push("GTA V");
+		recentGames.push("Arkham Asylum");
+		recentGames.push("Forza Horizon 4");
+		recentGames.push("Valorant");
 
-		System.out.println("Stack Class Testing:");
-		System.out.println();
-
-		System.out.println("Push Testing:");
-		gamesOnTable.push("Mario Kart");
-		gamesOnTable.push("FIFA");
-		gamesOnTable.push("F1 Racing");
-		gamesOnTable.push("GTA");
-		gamesOnTable.push("NBA 2K");
-		gamesOnTable.push("Forza");
-		gamesOnTable.push("Halo");
-		System.out.println(gamesOnTable.toString());
-		System.out.println();
-
-		System.out.println("Size Testing:");
-		System.out.println("Number of games on table: " + gamesOnTable.size());
-		System.out.println();
-
-		System.out.println("Pop and IsEmpty Testing:");
-		while(!gamesOnTable.isEmpty()) {
-			System.out.print("Object " + gamesOnTable.pop() + " removed : ");
-			System.out.println(gamesOnTable.toString());
-		}
-		System.out.println();
-	}
-
-	private static void queueTests() {
-
-		Queue lineAtAverageWalgreens = new Queue();
-
-		System.out.println("Queue Class Testing:");
-		System.out.println();
-
-		System.out.println("Enqueue Testing:");
-		lineAtAverageWalgreens.enqueue("Brad");
-		lineAtAverageWalgreens.enqueue("Chadison the VII");
-		lineAtAverageWalgreens.enqueue("David");
-		lineAtAverageWalgreens.enqueue("Dan");
-		lineAtAverageWalgreens.enqueue("Paul");
-		lineAtAverageWalgreens.enqueue("Cole");
-		lineAtAverageWalgreens.enqueue("Jack");
-		lineAtAverageWalgreens.enqueue("Ryan");
-		lineAtAverageWalgreens.enqueue("Kareem Abdul-Jabbar");
-		System.out.println(lineAtAverageWalgreens.toString());
-		System.out.println();
-
-
-		System.out.println("Size Testing:");
-		System.out.println("Number of people in an average line at your local Walgreens Pharmacy: " + lineAtAverageWalgreens.size());
-		System.out.println();
-
-		System.out.println("Dequeue and IsEmpty Testing:");
-		while(!lineAtAverageWalgreens.isEmpty()) {
-			System.out.print("Object " + lineAtAverageWalgreens.dequeue() + " removed : ");
-			System.out.println(lineAtAverageWalgreens.toString());
+		if (recentGames.toString().equals("Valorant Forza Horizon 4 Arkham Asylum GTA V League of Legends Spider-Man 2 Counter Strike ")) {
+			System.out.print(".");
+		} else {
+			failed = true;
+			allFailed[numFailed] = "Push Method Failed";
+			numFailed++;
 		}
 
+		if (recentGames.size() == 7) {
+			System.out.print(".");
+		} else {
+			failed = true;
+			allFailed[numFailed] = "Size Method Failed";
+			numFailed++;
+		}
 
+		while (!recentGames.isEmpty()) {
+			recentGames.pop();
+		}
+		for (int i = 0; i <= recentGames.size(); i++) {
+			if (recentGames.get(i) == null) {
+				System.out.print(".");
+			} else {
+				failed = true;
+				allFailed[numFailed] = "Remove and IsEmpty Method Failed";
+				numFailed++;
+			}
+		}
 	}
 
+	/**
+	 * Tests the Queue data structure by performing enqueue, size, dequeue, get, and
+	 * isEmpty operations.
+	 */
+	private static void testQueue() {
 
+		Queue lineAtCostco = new Queue();
+
+		lineAtCostco.enqueue("DeMarcus Cousins III");
+		lineAtCostco.enqueue("Stephen Curry");
+		lineAtCostco.enqueue("Lebron James");
+		lineAtCostco.enqueue("Jacques Webster II");
+		lineAtCostco.enqueue("Chris Paul");
+		lineAtCostco.enqueue("J Cole");
+		lineAtCostco.enqueue("Apple Jack");
+		lineAtCostco.enqueue("Ryan Reynolds");
+		lineAtCostco.enqueue("Larry Bird");
+
+		if (lineAtCostco.toString().equals("DeMarcus Cousins III Stephen Curry Lebron James Jacques Webster II Chris Paul J Cole Apple Jack Ryan Reynolds Larry Bird ")) {
+			System.out.print(".");
+		} else {
+			failed = true;
+			allFailed[numFailed] = "Push Method Failed";
+			numFailed++;
+		}
+
+		if (lineAtCostco.size() == 9) {
+			System.out.print(".");
+		} else {
+			failed = true;
+			allFailed[numFailed] = "Size Method Failed";
+			numFailed++;
+		}
+	}
 }
