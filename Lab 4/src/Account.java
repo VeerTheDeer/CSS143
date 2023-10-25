@@ -1,53 +1,63 @@
 /**
  * Account.java
  *
- * This Account class represents bank accounts that stores money for an owner.
+ * This Account class represents bank accounts that store money for an owner.
  *
- * Author: (put your name here)
+ * Author: Veer Saini
  */
-class Account
-{
-// Instance variables
-	private double balance;	// invariant: balance >= 0 (should never be negative)
+class Account {
+	// Instance variables
+	private double balance; // Invariant: balance >= 0 (should never be negative)
 	private String owner;
 
-//Constructor
-	public Account(String name)
-	{
+	// Constructor
+	public Account(String name) {
 		balance = 0;
 		owner = name;
 	}
 
-// Instance methods
-	/** Deposits 'amount' into the account
+	// Instance methods
+
+	/**
+	 * Deposits 'amount' into the account.
+	 *
+	 * @param amount The amount to deposit. Must be a positive value.
 	 */
-	public void deposit(int amount)
-	{
-		balance = balance + amount;
+	public void deposit(double amount) {
+		if (amount > 0) {
+			balance += amount;
+		} else {
+			System.out.println("Invalid deposit amount. Amount must be positive.");
+		}
 	}
 
-	/** Withdraws 'amount' from the account.
-	 *	This only makes sense if amount <= balance.
-	 *	This method should be re-written so that there is not a possibility of
-	 *	having a negative balance.
+	/**
+	 * Withdraws 'amount' from the account.
+	 * This only makes sense if amount <= balance.
+	 *
+	 * @param amount The amount to withdraw. Must be a positive value.
 	 */
-	public void withdraw(int amount)
-	{
-		balance = balance - amount;
+	public void withdraw(double amount) {
+		if (amount > 0) {
+			if (amount <= balance) {
+				balance -= amount;
+			} else {
+				System.out.println("Insufficient funds. Withdrawal amount exceeds balance.");
+			}
+		} else {
+			System.out.println("Invalid withdrawal amount. Amount must be positive.");
+		}
 	}
 
 	/* Returns the balance of the Account
 	 */
-	public int getBalance()
-	{
+	public double getBalance() {
 		return balance;
 	}
 
 	/* Returns the owner of the Account
 	 */
-	public String getOwner()
-	{
+	public String getOwner() {
 		return owner;
 	}
 }
-

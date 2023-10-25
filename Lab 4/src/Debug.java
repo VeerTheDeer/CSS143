@@ -1,5 +1,4 @@
 class Debug {
-     // set dmode to false to compile out debug code
-     public static final boolean dmode = false;
+     // Set dmode to true to enable debug code, and false to disable it
+     public static boolean dmode = true;
 }
-
