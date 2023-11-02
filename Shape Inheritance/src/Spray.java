@@ -16,7 +16,7 @@ class Spray extends Shape {
 	private final int DENSITY = 10;
 
 	public Spray( int a, int b ) {
-		super( a, b); 	//we explicitly call a superclass constructor that takes 2 ints
+		super(a, b); 	//we explicitly call a superclass constructor that takes 2 ints
 	}
 
 	public void draw( Graphics g) {

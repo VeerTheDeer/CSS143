@@ -21,6 +21,7 @@ class PolyDemo extends JFrame {
 	
 	public static void main( String args[] ) {
 		PolyDemo myApp = new PolyDemo();
+
 	}
 	
 	
@@ -59,11 +60,11 @@ class PolyDemo extends JFrame {
 			/************************
 			 * Late Binding Demo
 			 ************************/
-			for( int i = 0; i < myShapes.length; i++ ){
+			for(int i = 0; i < myShapes.length; i++ ){
 				//which draw method is invoked here? There are many forms of the method (polymorphic), so which is chosen?
 				//Java has RTTI about every object, and it uses this info to choose the correct method to invoke!
-				myShapes[i].draw( g );	
-			}	
+				myShapes[i].draw(g);
+			}
 		}
 			
 		
@@ -81,14 +82,14 @@ class PolyDemo extends JFrame {
 			 * Polymorphic extensibility demo
 			 *
 			 *******************************/
-			switch( ( int )(Math.random() * 4) ) {
-				case 0: 	retVal = new Spray( x,y );//new Square( x, y, getRandInt(), getRandInt() );
+			switch( (int)(Math.random() * 4) ) {
+				case 0: 	retVal = new Circle(getRandInt(), getRandInt(), getRandInt());
 							break;
-				case 1: 	retVal = new Spray( x,y );//Cube( x, y, getRandInt(), getRandInt(), getRandInt() );
+				case 1: 	retVal = new Rectangle(10, 50, 25, 15);
 							break;
-				case 2: 	retVal = new Spray( x,y );
+				case 2: 	retVal = new Kite(getRandInt(), getRandInt(), getRandInt(), getRandInt(), Color.pink);
 							break;
-				case 3: 	retVal = new Spray( x,y );//new Circle( x,y,getRandInt() );////new Cylinder( x,y, getRandInt(), getRandInt() );
+				case 3: 	retVal = new IsoscelesTriangle(getRandInt(), getRandInt(), getRandInt(), getRandInt(), Color.green);
 							break;				
 			}
 		

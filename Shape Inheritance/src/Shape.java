@@ -19,8 +19,8 @@ class Shape extends Object {
 	private int y = 0;
 
 	public Shape(int x, int y) {
-		this.x = x;
-		this.y = y;
+		setX(x);
+		setY(y);
 	}
 	public double getArea(){
 		return -1;
@@ -33,10 +33,10 @@ class Shape extends Object {
 	public int getY() {
 		return y;
 	}
-	public void setX(int value) {
-		x = value;
+	public void setX(int x) {
+		this.x = x;
 	}
-	public void setY(int value) {
-		y = value;
+	public void setY(int y) {
+		this.y = y;
 	}
 }
