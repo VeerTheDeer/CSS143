@@ -1,12 +1,12 @@
 /**
- * The BinarySearch class extends SearchAlgorithm and provides methods for binary search algorithm.
- * Implements search functionality using a recursive binary search algorithm.
+ * The BinarySearch class extends SearchAlgorithm and provides methods for a binary search algorithm.
+ * Implements search functionality using both iterative and recursive approaches.
  * Author: Veer Saini
  */
 public class BinarySearch extends SearchAlgorithm {
 
     /**
-     * Searches for a target word within an array of words using a recursive binary search algorithm.
+     * Searches for a target word within an array of words using an iterative binary search algorithm.
      *
      * @param words      The array of words to be searched.
      * @param targetWord The word to be found within the array.
@@ -15,23 +15,39 @@ public class BinarySearch extends SearchAlgorithm {
      */
     @Override
     public int search(String[] words, String targetWord) throws ItemNotFoundException {
-        int lowIDX = 0, highIDX = words.length - 1, midIDX = highIDX / 2;
+        int lowIDX = 0;
+        int highIDX = words.length - 1;
+        int midIDX;
 
-        return recSearch(words, targetWord, lowIDX, highIDX, midIDX);
+        while (lowIDX <= highIDX) {
+            incrementCount();
+
+            midIDX = (highIDX + lowIDX) / 2;
+            if ((words[midIDX]).compareTo(targetWord) == 0) {
+                return midIDX;
+            }
+            if ((words[midIDX]).compareTo(targetWord) < 0) {
+                lowIDX = midIDX + 1;
+            }
+            if ((words[midIDX]).compareTo(targetWord) > 0) {
+                highIDX = midIDX - 1;
+            }
+        }
+        throw new ItemNotFoundException();
     }
 
     /**
-     * Helper method for performing the recursive binary search.
+     * Recursive helper method for performing the binary search.
      *
-     * @param words   The array of words to be searched.
+     * @param words     The array of words to be searched.
      * @param targetWord The word to be found within the array.
-     * @param lowIDX  The lowest index in the current search range.
-     * @param highIDX The highest index in the current search range.
-     * @param midIDX  The middle index in the current search range.
+     * @param lowIDX    The lowest index in the current search range.
+     * @param highIDX   The highest index in the current search range.
+     * @param midIDX    The middle index in the current search range.
      * @return The index of the target word if found; otherwise, throws ItemNotFoundException.
      * @throws ItemNotFoundException If the target word is not present in the array.
      */
-    int recSearch(String[] words, String targetWord, int lowIDX, int highIDX, int midIDX) throws ItemNotFoundException {
+    public int recSearch(String[] words, String targetWord, int lowIDX, int highIDX, int midIDX) throws ItemNotFoundException {
         while (lowIDX <= highIDX) {
             this.incrementCount();
 
@@ -50,7 +66,7 @@ public class BinarySearch extends SearchAlgorithm {
     }
 
     /**
-     * Invokes the search method to perform a recursive search.
+     * Invokes the iterative search method to perform a recursive search.
      *
      * @param words      The array of words to be searched.
      * @param wordToFind The word to be found within the array.

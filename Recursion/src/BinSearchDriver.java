@@ -57,7 +57,7 @@ public class BinSearchDriver {
 		SearchAlgorithm bs = new BinarySearch();
 
 		try {
-			System.out.print(target + " found at index: " + bs.search(wordsToSearch, target));
+			System.out.print(target + " found at index: " + bs.recSearch(wordsToSearch, target));
 			System.out.println(" taking " + bs.getCount() + " comparisons.");
 		} catch (ItemNotFoundException e) {
 			System.out.println(target + ":" + e.getMessage());
@@ -74,7 +74,7 @@ public class BinSearchDriver {
 		SearchAlgorithm bs = new LinearSearch();
 
 		try {
-			System.out.print(target + " found at index: " + bs.search(wordsToSearch, target));
+			System.out.print(target + " found at index: " + bs.recSearch(wordsToSearch, target));
 			System.out.println(" taking " + bs.getCount() + " comparisons.");
 
 		} catch (ItemNotFoundException e) {

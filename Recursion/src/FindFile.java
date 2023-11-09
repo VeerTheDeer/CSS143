@@ -1,4 +1,4 @@
-import java.io.*;
+import java.io.File;
 
 /**
  * The FindFile class provides functionality to search for specific files within directories.
